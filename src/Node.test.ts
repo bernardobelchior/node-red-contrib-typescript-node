@@ -3,8 +3,8 @@ import { NodeProperties, Red } from "node-red";
 
 describe("Node", () => {
     class NodeTest extends Node {
-        constructor(red: Red, config: NodeProperties) {
-            super(red, config);
+        constructor(red: Red) {
+            super(red);
         }
     }
 
@@ -20,7 +20,6 @@ describe("Node", () => {
     });
 
     it("should register type with the subclass constructor", () => {
-
         const opts = {
             opt1: true
         };
@@ -36,11 +35,11 @@ describe("Node", () => {
     it("should create node with config", () => {
         const config: NodeProperties = {id: "123", name: "node-test", type: "node-test"};
 
-        const node = new NodeTest(RED, config);
+        const node = new NodeTest(RED);
 
         expect(RED.nodes.createNode).not.toHaveBeenCalled();
 
-        node.createNode();
+        node.createNode(config);
 
         expect(RED.nodes.createNode).toHaveBeenCalledWith(node, config);
     });

@@ -1,7 +1,7 @@
 {
-  "name": "nodered-typescript-node",
+  "name": "node-red-contrib-typescript-node",
   "version": "0.1.0",
-  "description": "",
+  "description": "TypeScript Node class to be extended by custom nodes.",
   "author": "Bernardo Belchior",
   "license": "MIT",
   "main": "./dist/index.js",
