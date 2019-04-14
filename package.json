@@ -7,11 +7,12 @@
   "main": "./dist/index.js",
   "scripts": {
     "start": "npm run watch",
-    "build": "npm run build-ts && npm run tslint",
+    "build": "npm run tslint && npm run build-ts",
     "watch-node": "nodemon --watch dist/ --exec \"node-red\"",
     "watch": "npm run copy-static-assets && concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
-    "test": "jest --forceExit --verbose -- --watchAll",
-    "coverage": "jest --forceExit --coverage --verbose",
+    "test": "jest --detectOpenHandles --forceExit --verbose --watchAll",
+    "test:prod": "npm run tslint && jest --detectOpenHandles --forceExit --verbose",
+    "coverage": "jest --detectOpenHandles --forceExit --coverage --verbose",
     "build-ts": "tsc --declaration",
     "watch-ts": "tsc -w",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
