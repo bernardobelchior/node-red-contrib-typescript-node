@@ -5,6 +5,7 @@
   "author": "Bernardo Belchior",
   "license": "MIT",
   "main": "./dist/index.js",
+  "repository": "https://github.com/bernardobelchior/node-red-contrib-typescript-node",
   "scripts": {
     "start": "npm run watch",
     "build": "npm run tslint && npm run build-ts",
