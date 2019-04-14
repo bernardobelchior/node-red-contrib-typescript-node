@@ -1,0 +1,35 @@
+{
+  "name": "nodered-typescript-node",
+  "version": "0.1.0",
+  "description": "",
+  "author": "Bernardo Belchior",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "npm run watch",
+    "build": "npm run build-ts && npm run tslint",
+    "watch-node": "nodemon --watch dist/ --exec \"node-red\"",
+    "watch": "npm run copy-static-assets && concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "test": "jest --forceExit --verbose -- --watchAll",
+    "coverage": "jest --forceExit --coverage --verbose",
+    "build-ts": "tsc --declaration",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.4",
+    "@types/node-red": "^0.17.3",
+    "@types/shelljs": "^0.8.4",
+    "concurrently": "^4.1.0",
+    "jest": "^24.7.1",
+    "node-red": "^0.20.5",
+    "nodemon": "^1.18.0",
+    "prettier": "^1.17.0",
+    "shelljs": "^0.8.3",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.0.0",
+    "tslint": "^5.15.0",
+    "typescript": "^3.4"
+  }
+}
