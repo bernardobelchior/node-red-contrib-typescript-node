@@ -1,16 +1,19 @@
 import { NodeProperties, Red } from "node-red";
 import { Node} from 'nodered-typescript-node'
 
-module.exports = function (RED: any) {
+module.exports = function (RED: Red) {
   class LowerCaseNode extends Node {
-    constructor(config: any) {
+    constructor(config: NodeProperties) {
       super(RED);
+
       this.createNode(config);
-      (this as any).on('input', function(msg: any) {
+
+      this.on('input', function(msg: any) {
         msg.payload = msg.payload.toLowerCase();
         this.send(msg);
       });
     }
   }
+
   LowerCaseNode.registerType(RED, "lower-case");
 };
