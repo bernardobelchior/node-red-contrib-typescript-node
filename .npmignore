@@ -14,6 +14,7 @@ npm-debug.log
 .vscode
 *.iml
 coverage
+examples
 
 src
 tsconfig.json
